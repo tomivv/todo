@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
-/***/ "./Components/Data.js":
+/***/ "./components/Data.js":
 /*!****************************!*\
-  !*** ./Components/Data.js ***!
+  !*** ./components/Data.js ***!
   \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12,10 +12,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Data; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TodoContext */ "./Components/TodoContext.js");
-var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/Components/Data.js";
+/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
+/* harmony import */ var _Todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Todo */ "./components/Todo.js");
+var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Data.js";
 
  // eslint-disable-next-line import/no-cycle
+
 
 
 function Data() {
@@ -25,32 +27,27 @@ function Data() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 9
     },
     __self: this
   }, notes.map(function (note) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Todo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      value: note,
       key: note.id,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
       },
       __self: this
-    }, note.note);
-  })));
+    });
+  }));
 }
 
 /***/ }),
 
-/***/ "./Components/Page.js":
+/***/ "./components/Page.js":
 /*!****************************!*\
-  !*** ./Components/Page.js ***!
+  !*** ./components/Page.js ***!
   \****************************/
 /*! exports provided: useNotes, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -65,13 +62,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TodoContext */ "./Components/TodoContext.js");
+/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../style.css */ "./style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
-var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/Components/Page.js";
+var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Page.js";
 
  // eslint-disable-next-line import/no-cycle
+
 
 
 function useNotes() {
@@ -121,13 +121,14 @@ function Page(_ref2) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 24
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 25
     },
     __self: this
   }, children));
@@ -135,9 +136,75 @@ function Page(_ref2) {
 
 /***/ }),
 
-/***/ "./Components/TodoContext.js":
+/***/ "./components/Todo.js":
+/*!****************************!*\
+  !*** ./components/Todo.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Todo; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../style.css */ "./style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Todo.js";
+
+
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
+function Todo(note) {
+  function underLine(e) {
+    if (e.target.classList.contains('line')) {
+      e.target.classList.remove('line');
+    } else {
+      e.target.className = 'line';
+    }
+
+    console.log(e.target.classList);
+  }
+
+  return (// eslint-disable-next-line react/style-prop-object
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: note.value.id,
+      className: "note",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      onClick: function onClick(e) {
+        return underLine(e);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, note.value.note), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, "X"))
+  );
+}
+
+/***/ }),
+
+/***/ "./components/TodoContext.js":
 /*!***********************************!*\
-  !*** ./Components/TodoContext.js ***!
+  !*** ./components/TodoContext.js ***!
   \***********************************/
 /*! exports provided: TodoContext, TodoProvider */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3251,14 +3318,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_Page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Page */ "./Components/Page.js");
-/* harmony import */ var _Components_Data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Data */ "./Components/Data.js");
+/* harmony import */ var _components_Page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Page */ "./components/Page.js");
+/* harmony import */ var _components_Data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Data */ "./components/Data.js");
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/pages/index.js";
 
 
 
 function Home() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Page__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Page__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
@@ -3270,7 +3337,7 @@ function Home() {
       lineNumber: 7
     },
     __self: this
-  }, "Todo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Data__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "Todo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Data__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -3304,5 +3371,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 // eslint-disable-next-line import/no-cycle
 import { TodoProvider } from './TodoContext';
+import '../style.css';
 
 export function useNotes() {
   const [note, setNote] = useState([]);
@@ -21,7 +22,7 @@ export default function Page({ children }) {
   const notes = useNotes();
   return (
     <TodoProvider value={{ notes }}>
-      <div>{children}</div>
+      <div className="container">{children}</div>
     </TodoProvider>
   );
 }
