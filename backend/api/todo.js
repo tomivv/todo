@@ -38,9 +38,7 @@ const addNote = (req, res) => {
     msg: 'Jotain meni pieleen',
   };
   // eslint-disable-next-line prefer-destructuring
-  const note = req.query.note;
-  console.log(req.query.note);
-  console.log(note);
+  const note = req.body.note;
 
   if (!userDataStringValidation(note)) {
     res.status(200).send(JSON.stringify(response));
@@ -57,7 +55,26 @@ const addNote = (req, res) => {
   });
 };
 
+const deleteNote = (req, res) => {
+  const response = {
+    success: false,
+    msg: 'jotain meni pieleen',
+  };
+  const id = parseInt(req.params.id);
+  console.log(id);
+
+  pool.query('delete from notes where id = $1', [id], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    response.success = true;
+    response.msg = `poistettu`;
+    res.status(200).send(JSON.stringify(response));
+  });
+};
+
 module.exports = {
   getNotes,
   addNote,
+  deleteNote,
 };

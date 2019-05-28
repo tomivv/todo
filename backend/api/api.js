@@ -19,4 +19,6 @@ router.route('/notes')
   .get(db.getNotes)
   .post(db.addNote);
 
+router.route('/notes/:id').delete(db.deleteNote);
+
 module.exports = router;
