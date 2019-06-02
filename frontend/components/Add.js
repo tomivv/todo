@@ -1,17 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
+import { TodoContext } from './TodoContext';
 
 export default function Add() {
   const [note, setNote] = useState('');
+  const { updateNotes } = useContext(TodoContext);
 
   async function addNote() {
     const api = `http://localhost:3001/api/notes`;
     const response = await axios.post(api, {
       note: note.toString(),
     });
-    console.log(response);
+    updateNotes();
   }
 
   return (

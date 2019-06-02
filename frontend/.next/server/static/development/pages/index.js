@@ -111,6 +111,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
 
 
 
@@ -122,11 +123,15 @@ var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Add.
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 
+
 function Add() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(''),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
       note = _useState2[0],
       setNote = _useState2[1];
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_3__["useContext"])(_TodoContext__WEBPACK_IMPORTED_MODULE_5__["TodoContext"]),
+      updateNotes = _useContext.updateNotes;
 
   function addNote() {
     return _addNote.apply(this, arguments);
@@ -149,7 +154,7 @@ function Add() {
 
             case 3:
               response = _context.sent;
-              console.log(response);
+              updateNotes();
 
             case 5:
             case "end":
@@ -164,13 +169,13 @@ function Add() {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 20
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 21
     },
     __self: this
   }, "Note: "), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
@@ -182,7 +187,7 @@ function Add() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 22
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
@@ -192,7 +197,7 @@ function Add() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 23
     },
     __self: this
   }, "Add"));
@@ -222,7 +227,7 @@ var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Data
 
 function Data() {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_TodoContext__WEBPACK_IMPORTED_MODULE_1__["TodoContext"]),
-      notes = _useContext.notes;
+      note = _useContext.note;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
@@ -230,10 +235,10 @@ function Data() {
       lineNumber: 9
     },
     __self: this
-  }, notes.map(function (note) {
+  }, note.map(function (notes) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Todo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      value: note,
-      key: note.id,
+      value: notes,
+      key: notes.id,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
@@ -262,13 +267,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../style.css */ "./style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../style.css */ "./style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Page.js";
+
 
  // eslint-disable-next-line import/no-cycle
 
@@ -280,55 +288,63 @@ function useNotes() {
       note = _useState2[0],
       setNote = _useState2[1];
 
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  function updateNotes() {
+    return _updateNotes.apply(this, arguments);
+  }
+
+  function _updateNotes() {
+    _updateNotes = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
     /*#__PURE__*/
     _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var response, data;
+      var api, _ref, data;
+
       return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return fetch('http://localhost:3001/api/notes');
+              api = 'http://localhost:3001/api/notes';
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default.a.get(api);
 
-            case 2:
-              response = _context.sent;
-              _context.next = 5;
-              return response.json();
-
-            case 5:
-              data = _context.sent;
+            case 3:
+              _ref = _context.sent;
+              data = _ref.data;
               setNote(data);
 
-            case 7:
+            case 6:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
-    }))();
+    }));
+    return _updateNotes.apply(this, arguments);
+  }
+
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    updateNotes();
   }, []);
-  return note;
+  return {
+    note: note,
+    updateNotes: updateNotes
+  };
 } // eslint-disable-next-line react/prop-types
 
 function Page(_ref2) {
   var children = _ref2.children;
-  var notes = useNotes();
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_TodoContext__WEBPACK_IMPORTED_MODULE_4__["TodoProvider"], {
-    value: {
-      notes: notes
-    },
+  var hook = useNotes();
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_TodoContext__WEBPACK_IMPORTED_MODULE_5__["TodoProvider"], {
+    value: hook,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 28
     },
     __self: this
   }, children));
@@ -353,8 +369,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../style.css */ "./style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TodoContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TodoContext */ "./components/TodoContext.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../style.css */ "./style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Todo.js";
@@ -369,15 +386,18 @@ var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Todo
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 
+
+
 function Todo(note) {
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_TodoContext__WEBPACK_IMPORTED_MODULE_4__["TodoContext"]),
+      updateNotes = _useContext.updateNotes;
+
   function underLine(e) {
     if (e.target.classList.contains('line')) {
       e.target.classList.remove('line');
     } else {
       e.target.className = 'line';
     }
-
-    console.log(e.target.classList);
   }
 
   function deleteNote(_x) {
@@ -399,7 +419,7 @@ function Todo(note) {
 
             case 3:
               resp = _context.sent;
-              console.log(resp);
+              updateNotes();
 
             case 5:
             case "end":
@@ -417,7 +437,7 @@ function Todo(note) {
       className: "note",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 29
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
@@ -426,7 +446,7 @@ function Todo(note) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 30
       },
       __self: this
     }, note.value.note), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
@@ -437,7 +457,7 @@ function Todo(note) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 31
       },
       __self: this
     }, "X"))
