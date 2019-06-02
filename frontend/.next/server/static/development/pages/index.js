@@ -360,6 +360,8 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Todo.js";
 
 
+/* eslint-disable no-unused-vars */
+
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -415,7 +417,7 @@ function Todo(note) {
       className: "note",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 26
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
@@ -424,7 +426,7 @@ function Todo(note) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
     }, note.value.note), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
@@ -435,7 +437,7 @@ function Todo(note) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 28
       },
       __self: this
     }, "X"))
