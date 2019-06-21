@@ -13,14 +13,15 @@ export default function Add() {
     const response = await axios.post(api, {
       note: note.toString(),
     });
+    setNote('');
     updateNotes();
   }
 
   return (
     <div>
-      <label>Note: </label>
-      <input id="addInput" type="text" value={note} onChange={e => setNote(e.target.value)} />
-      <button type="button" onClick={e => addNote(e)}>
+      <label className="addLabel">Note: </label>
+      <input id="addInput" type="text" className="addInput" value={note} onChange={e => setNote(e.target.value)} />
+      <button type="button" className="addBtn" onClick={e => addNote(e)}>
         Add
       </button>
     </div>

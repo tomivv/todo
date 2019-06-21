@@ -154,9 +154,10 @@ function Add() {
 
             case 3:
               response = _context.sent;
+              setNote('');
               updateNotes();
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -169,35 +170,38 @@ function Add() {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 21
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("label", {
+    className: "addLabel",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 22
     },
     __self: this
   }, "Note: "), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
     id: "addInput",
     type: "text",
+    className: "addInput",
     value: note,
     onChange: function onChange(e) {
       return setNote(e.target.value);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 23
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
     type: "button",
+    className: "addBtn",
     onClick: function onClick(e) {
       return addNote(e);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 24
     },
     __self: this
   }, "Add"));

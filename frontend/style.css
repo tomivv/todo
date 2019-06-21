@@ -10,8 +10,24 @@
 .note {
   display: grid;
   grid-template-columns: 95% auto;
-  padding-bottom: 10px;
+  padding-top: 10px;
   grid-template-rows: auto;
+  font-size: 20px;
+  border-bottom: 5px solid red;
+}
+
+.addLabel {
+  font-size: 25px;
+}
+
+.addInput {
+  font-size: 15px;
+  width: 80%;
+  margin-right: 10px;
+}
+
+.addBtn {
+  font-size: 15px;
 }
 
 .btn {
@@ -30,3 +46,6 @@ p {
   margin-inline-end: 0px;
 }
 
+body {
+  background: antiquewhite;
+}
