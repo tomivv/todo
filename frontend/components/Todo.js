@@ -28,9 +28,7 @@ export default function Todo(note) {
     // eslint-disable-next-line react/style-prop-object
     <div id={note.value.id} className="note">
       <p onClick={e => underLine(e)}>{note.value.note}</p>
-      <button type="button" className="btn" onClick={e => deleteNote(note.value.id)}>
-        X
-      </button>
+      <button type="button" className="btn closeBtn" onClick={e => deleteNote(note.value.id)} />
     </div>
   );
 }

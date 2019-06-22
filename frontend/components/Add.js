@@ -18,7 +18,7 @@ export default function Add() {
   }
 
   return (
-    <div>
+    <div className="addBlock">
       <label className="addLabel">Note: </label>
       <input id="addInput" type="text" className="addInput" value={note} onChange={e => setNote(e.target.value)} />
       <button type="button" className="addBtn" onClick={e => addNote(e)}>

@@ -10,10 +10,21 @@
 .note {
   display: grid;
   grid-template-columns: 95% auto;
-  padding-top: 10px;
+  padding-top: 5px;
   grid-template-rows: auto;
+  height: 40px;
   font-size: 20px;
-  border-bottom: 5px solid red;
+  margin: 5px;
+}
+
+.closeBtn {
+  background-image: url('/static/x.png');
+  width: 40px;
+  border: none;
+}
+
+.addBlock {
+  padding-bottom: 5px;
 }
 
 .addLabel {
@@ -31,7 +42,7 @@
 }
 
 .btn {
-  height: 25px;
+  height: 37px;
   margin: auto;
 }
 
@@ -47,5 +58,5 @@ p {
 }
 
 body {
-  background: antiquewhite;
+  background-image: url('/static/bg.jpg')
 }

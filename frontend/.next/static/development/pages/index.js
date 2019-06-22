@@ -75,6 +75,7 @@ function Add() {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    className: "addBlock",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21
@@ -362,7 +363,7 @@ function Todo(note) {
       __self: this
     }, note.value.note), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
       type: "button",
-      className: "btn",
+      className: "btn closeBtn",
       onClick: function onClick(e) {
         return deleteNote(note.value.id);
       },
@@ -371,7 +372,7 @@ function Todo(note) {
         lineNumber: 31
       },
       __self: this
-    }, "X"))
+    }))
   );
 }
 
