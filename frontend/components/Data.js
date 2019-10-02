@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-// eslint-disable-next-line import/no-cycle
 import { TodoContext } from './TodoContext';
 import Todo from './Todo';
 

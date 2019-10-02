@@ -226,7 +226,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Todo */ "./components/Todo.js");
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Data.js";
 
- // eslint-disable-next-line import/no-cycle
 
 
 
@@ -237,7 +236,7 @@ function Data() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 8
     },
     __self: this
   }, note.map(function (notes) {
@@ -246,7 +245,7 @@ function Data() {
       key: notes.id,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 10
       },
       __self: this
     });
@@ -283,7 +282,6 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Page.js";
 
 
- // eslint-disable-next-line import/no-cycle
 
 
 
@@ -333,8 +331,7 @@ function useNotes() {
     note: note,
     updateNotes: updateNotes
   };
-} // eslint-disable-next-line react/prop-types
-
+}
 function Page(_ref2) {
   var children = _ref2.children;
   var hook = useNotes();
@@ -342,14 +339,14 @@ function Page(_ref2) {
     value: hook,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 25
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 26
     },
     __self: this
   }, children));
@@ -382,14 +379,6 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/tomi/Documents/projects/todo/frontend/components/Todo.js";
 
 
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
 
 
 
@@ -413,7 +402,7 @@ function Todo(note) {
     _deleteNote = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
     /*#__PURE__*/
     _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-      var api, resp;
+      var api;
       return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -423,10 +412,9 @@ function Todo(note) {
               return axios__WEBPACK_IMPORTED_MODULE_3___default.a.delete(api);
 
             case 3:
-              resp = _context.sent;
               updateNotes();
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -436,37 +424,34 @@ function Todo(note) {
     return _deleteNote.apply(this, arguments);
   }
 
-  return (// eslint-disable-next-line react/style-prop-object
-    react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      id: note.value.id,
-      className: "note",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-      onClick: function onClick(e) {
-        return underLine(e);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
-    }, note.value.note), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-      type: "button",
-      className: "btn closeBtn",
-      onClick: function onClick(e) {
-        return deleteNote(note.value.id);
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 31
-      },
-      __self: this
-    }))
-  );
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    id: note.value.id,
+    className: "note",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+    onClick: underLine,
+    onKeyPress: underLine,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, note.value.note), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+    type: "button",
+    className: "btn closeBtn",
+    onClick: function onClick() {
+      return deleteNote(note.value.id);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: this
+  }));
 }
 
 /***/ }),
