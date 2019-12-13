@@ -14,8 +14,8 @@ router.get('/', function(req, res) {
   res.send(`Kokonaismäärä pyyntöjä: ${requestTimes}`);
 });
 
-// eslint-disable-next-line prettier/prettier
-router.route('/notes')
+router
+  .route('/notes')
   .get(db.getNotes)
   .post(db.addNote);
 

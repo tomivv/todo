@@ -6,15 +6,11 @@ const pool = new Pool({
   host: 'localhost',
   database: 'todo',
   password: '',
-  port: 5432,
+  port: 5432
 });
 
 function userDataStringValidation(data) {
   if (data === '') {
-    return false;
-  }
-  // eslint-disable-next-line use-isnan
-  if (data === NaN) {
     return false;
   }
   if (data == null) {
@@ -35,7 +31,7 @@ const getNotes = (req, res) => {
 const addNote = (req, res) => {
   const response = {
     success: false,
-    msg: 'Jotain meni pieleen',
+    msg: 'Jotain meni pieleen'
   };
   // eslint-disable-next-line prefer-destructuring
   const note = req.body.note;
@@ -45,7 +41,7 @@ const addNote = (req, res) => {
     return;
   }
 
-  pool.query('insert into notes (note) values ($1)', [note], (err, results) => {
+  pool.query('insert into notes (note) values ($1)', [note], err => {
     if (err) {
       throw err;
     }
@@ -58,12 +54,12 @@ const addNote = (req, res) => {
 const deleteNote = (req, res) => {
   const response = {
     success: false,
-    msg: 'jotain meni pieleen',
+    msg: 'jotain meni pieleen'
   };
   const id = parseInt(req.params.id);
   console.log(id);
 
-  pool.query('delete from notes where id = $1', [id], (err, results) => {
+  pool.query('delete from notes where id = $1', [id], err => {
     if (err) {
       throw err;
     }
@@ -76,5 +72,5 @@ const deleteNote = (req, res) => {
 module.exports = {
   getNotes,
   addNote,
-  deleteNote,
+  deleteNote
 };
