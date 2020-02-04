@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+}
+
+.note-bg {
+  background-color: springgreen;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.btn-note {
+  background-color: skyblue !important;
+}
+
+div p {
+  margin: auto;
+}
