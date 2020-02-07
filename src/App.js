@@ -5,7 +5,7 @@ import Notes from './lib/Notes';
 import Add from './lib/Add';
 
 function App() {
-  const [notes, setNotes] = useState(null);
+  const [notes, setNotes] = useState([]);
 
   return (
     <div className="App">

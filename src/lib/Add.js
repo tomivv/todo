@@ -6,8 +6,8 @@ export default function Add({ set }) {
 
   async function updateNotes() {
     let localNotes = JSON.parse(localStorage.getItem('notes'));
-    if (localStorage.getItem('count') === 'NaN') {
-      localStorage.setItem('count', 1);
+    if (localNotes === 'NaN') {
+      localStorage.setItem('notes', [])
     }
     let localCount = localStorage.getItem('count');
 
@@ -15,7 +15,7 @@ export default function Add({ set }) {
       const arr = [];
       arr.push({text: note, id: 0})
       localStorage.setItem('notes', JSON.stringify(arr));
-      localStorage.setItem('count', parseInt(localCount) + 1)
+      localStorage.setItem('count', 1)
     } else {
       localNotes.push({text: note, id: parseInt(localCount)})
       localStorage.setItem('notes', JSON.stringify(localNotes));

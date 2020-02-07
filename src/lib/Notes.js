@@ -1,7 +1,7 @@
 import React from 'react';
 import Note from './Note';
 
-export default function Notes({ notes, set }) {
+export default function Notes({ set }) {
 
   const LocalNotes = JSON.parse(localStorage.getItem('notes'))
   
